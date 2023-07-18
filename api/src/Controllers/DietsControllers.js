@@ -5,7 +5,7 @@ const { API_KEY } = process.env;
 // Obtener las dietas de la API y guardarlas en la base de datos
 const fetchAndSaveDiets = async () => {
   try {
-    const { data } = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=37`);
+    const { data } = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`);
 
     const dietSet = new Set();
 

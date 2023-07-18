@@ -1,3 +1,5 @@
+
+
 const Detail = () =>{
     return(
         <>

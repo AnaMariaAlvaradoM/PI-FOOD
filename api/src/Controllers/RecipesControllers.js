@@ -9,8 +9,8 @@ const cleanArray = (array)=> {
                     id: elem.id,
                     title: elem.title,
                     image: elem.image,
-                    dietTypes: elem.diets,
-                    summary: elem.summary,
+                    diets: elem.diets,
+                    summary: elem.summary.replace(/<\/?[^>]+(>|$)/g, ""),
                     healthScore: elem.healthScore,
                     steps: elem.analyzedInstructions[0]?.steps.map(elem => {
                         return {
@@ -42,7 +42,7 @@ const getRecetaById = async ( idRecipe, source) =>{
       image: response.data.image,
       diets: response.diets,
       healthscore: response.data.healthScore,
-      summary: response.data.summary,
+      summary: response.data.summary.replace(/<\/?[^>]+(>|$)/g, ""),
       steps: response.data.analyzedInstructions[0]?.steps.map(step => {
         return { number: step.number, step: step.step };
       }) || [],
