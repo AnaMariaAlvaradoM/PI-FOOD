@@ -1,8 +1,41 @@
 .container{
-    border: 1px solid black;
+  /* background-image:url("../../Views/Home/Fondo1.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url("../../Imagenes/Fondo1.png");  
+  background-repeat: no-repeat;
+  background-size: cover; */
+    /* border: 1px solid black; */
     display: flex;
     flex-direction: row;
     border-radius: 15px;
     flex-wrap: wrap;
     gap: 1em;
+
+
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 8px 12px ;
+    margin: 5px 5px;
+    background-color: #ebebeb;
+    color: #333;
+    border-color: aquamarine;
+    border-radius: 40px;
+    cursor: pointer;
+    width: 100px; /* Ajusta el ancho según tus necesidades */
+    height: 40px;
+  }
+  
+  .pagination button:hover {
+    background-color: #ccc;
+  }
+  
+  .pagination span {
+    font-weight: bold;
+    margin: 0 5px;
+  }

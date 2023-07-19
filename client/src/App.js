@@ -14,8 +14,8 @@ function App() {
     <div className="App">
       {location.pathname !== "/" && <NavBar />}
       <Route exact path='/' component={Landing} />
-      <Route path='/Detail' component={Detail}  />
-      <Route path='/Form' component={Form} />
+      <Route path='/detail' component={Detail}  />
+      <Route path='/form' component={Form} />
       <Route path='/home'render = {() => <Home />}  />
 
     </div>

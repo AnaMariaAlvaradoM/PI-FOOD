@@ -1,0 +1,63 @@
+
+
+.box{
+    background-image:url("../../Imagenes/Fondo1.png");
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url("../../Imagenes/Fondo1.png");  */
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100vh;
+} 
+.container{
+    width: 50vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #808e953f;
+    border-radius: 15px;
+    padding: 20px;
+    border: 2px solid #b7b7a4;
+    text-align: center;
+    color: #ebebeb;
+    justify-items: center;
+    align-items: center;
+}
+
+.fraseBienvenida{
+    color: rgb(222, 45, 45);
+    font-size: 36px;
+    font-weight: normal;
+    font-family: 'Yeseva One', sans-serif;
+}
+
+.frase{
+    font-size: 30px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.homeButton{
+    width: fit-content;
+    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 18px;
+    color: #000000;
+    font-weight: bold;
+    border: 2px solid #ebebeb;
+    border-radius: 6px;
+    font-size: 18px;
+    background-color: #90a4ae46;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.homeButton:hover{
+    background-color: #ffd70d73;
+}
+
