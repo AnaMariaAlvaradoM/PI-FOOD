@@ -19,9 +19,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
-    /* background-image: url(././Imagenes/Fondo1.png); */
+    /* background-image: url(././Imagenes/Fondo1.png);  */
      /* background-image: linear-gradient(rgba(255, 252, 252, 0.5), rgba(0, 0, 0, 0.3)), url(././Imagenes/Fondo1.png);  */
-     /* background-repeat: no-repeat; */
+     /* background-repeat: no-repeat;  */
      
 }
 

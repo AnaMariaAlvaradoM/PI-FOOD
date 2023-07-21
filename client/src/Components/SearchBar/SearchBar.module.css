@@ -1,15 +1,21 @@
-.SearchInput{
-    border: 5;
-    border-radius: 15px 0px 0px 15px;
-    border-color: rgb(0, 0, 0);
-    padding: 0.5em;
-    font-size: 1em;
-    font-weight: bold;
-    
+.container {
+    margin: auto;
 }
-.SearchButton{
-    border: 5;
-    border-radius: 0px 15px 15px 0px ;
-    padding: 0.5em;
-    font-weight: bold;
+
+.container input {
+    border-radius: 3px;
+    height: 100%;
+}
+
+.container button {
+    border-radius: 3px;
+    height: 100%;
+    color: whitesmoke;
+    background-color: darkslategray;
+    box-shadow: 0 5px 5px black;
+    &:hover {
+        color: darkslategray;
+        background-color: whitesmoke;
+        box-shadow: 0 5px 5px white;
+    }
 }

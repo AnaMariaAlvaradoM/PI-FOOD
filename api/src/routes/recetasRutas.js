@@ -7,7 +7,7 @@ const { getRecetaIdHandler,
 
 const recetasRouter = Router();
 
-recetasRouter.get("/:idRecipe", getRecetaIdHandler);
+recetasRouter.get("/:id", getRecetaIdHandler);
 
 recetasRouter.get("/", getRecetaNameHandler);
 

@@ -1,24 +1,24 @@
+import React from "react";
+import { useDispatch } from "react-redux";
+// import SearchBar from "../../Components/SearchBar/SearchBar";
+import { getRecipes } from "../../Redux/Actions";
 import CardsContainer from "../../Components/CardsContainer/CardsContainer";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getRecipes } from "../../Redux/Actions";
-import style from "./Home.modules.css";
+const Home = () => {
+  const dispatch = useDispatch();
 
-const Home = () =>{
-    //Cuando se monta, lo manejmos con useEffect, el dispatch con useDispatch
-    const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getRecipes());
+  }, [dispatch]);
 
-    useEffect(()=>{
-        dispatch(getRecipes());
-    },[dispatch])
-
-    return(
-    <div className={style.homeContainer}>
-
-        <CardsContainer />
+  return (
+    <div >
+      {/* <SearchBar /> */}
+      <CardsContainer />
     </div>
-    )
-}
+    
+  );
+};
 
 export default Home;
         // <>

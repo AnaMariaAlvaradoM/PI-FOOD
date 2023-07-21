@@ -1,11 +1,59 @@
-.CardIndividual{
-    /* background-color:	transparent; */
-    background-color: rgba(197, 183, 183, 0.799);
-    border: ridge rgb(255, 253, 253) 5px;
+body, html {
+    margin: 0;
+    padding: 0;
+    background-image: url("../../Imagenes/Fondo3.png");
+    background-size: 100% 100%; /* Ajusta la imagen para que cubra todo el contenedor sin recortarse */
+    /* background-position: center center; /* Centra la imagen de fondo tanto vertical como horizontalmente */
+    width: 100%;
+    height: 100vh; /* Establece el alto del contenedor al 100% del viewport */
+} 
+.CardIndividual {
+    background-image: linear-gradient(rgba(253, 253, 253, 0.652), rgba(253, 253, 253, 0.652));
     display: flex;
-    flex-direction: column; 
-    width: 19em;
-    height: fit-content;
-    margin: 1em;
-    padding: 1em;
-}
+    /* flex-direction: column; */
+    padding: 10px;
+    border-radius: 30px;
+  }
+
+  h1{
+    font-family: 'Poppins-Regular', sans-serif;
+    color: #f2f2f2;
+    background-color: gray ;
+  }
+  h2{
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    text-align: left;
+    
+  }
+  ul, h3 {
+    list-style:decimal; /* Quita los puntos de la lista */
+    margin: 10px 0; /* Espacio entre la imagen y la lista */
+    background-color: #f2f2f2;
+    text-align: left;
+    font-size: large;
+    color: rgb(217, 217, 217);
+    margin: .25em 0;
+    font-size: 30px ;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+
+  }
+  li::marker {
+    color: black; /* Cambia el color a azul, puedes ajustar el color según tus preferencias */
+    font-weight:bold; /* O cualquier otro estilo que desees aplicar a los números */
+    font-size: larger;
+  }
+  
+  .imagen {
+    /* display: flex;
+    justify-content: left;
+    margin-top: 10px; /* Espacio entre los títulos y la imagen */
+    /* width: 150px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    /* height: auto;  */
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+  }   

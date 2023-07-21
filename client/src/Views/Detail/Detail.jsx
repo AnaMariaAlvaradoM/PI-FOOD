@@ -1,82 +1,64 @@
-import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
 import { useParams } from "react-router-dom";
-import { getRecipesDetail, cleanDetail } from "../../Redux/Actions";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import style from './Detail.module.css'
 
-const Detail = () => {
-  const dispatch = useDispatch();
+export default function Detail() {
   const { id } = useParams();
-  const { idRecipe, title, healthScore, summary, diets } =
-    useSelector((state) => state.recipe);
+  const [recipe, setRecipe] = useState({});
 
-    useEffect(() => {
-      dispatch(getRecipesDetail(id));
-      return () => {
-        dispatch(cleanDetail());
-      };
-    }, [dispatch, id]);
+  useEffect(() => {
+    console.log("idRecipDetail:", id); // Agrega este console.log
+    axios(`http://localhost:3001/recipes/${id}`)
+        .then(({ data }) => {
+          setRecipe(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+       // window.alert("No se pudo obtener el detalle de la receta");
+      });
+  }, [id]);
 
   return (
     <div>
-    
-        <div>
-          <h1>Esta es la vista del Detail</h1>
-          <h2>Title: {title}</h2>
-          <h2>ID: {idRecipe}</h2>
-          <h2>Diets: {diets}</h2>
-          <h2>Health Score: {healthScore}</h2>
-          <h2>Summary: {summary}</h2>
-          {/* Resto del código */}
+      <div className={style.CardIndividual}>
+        <div className={style.header}>
+          {/* <h1>Detalle de la receta</h1> */}
+          <h1>{recipe.title}</h1>
+          <div className={style.imagen}>
+            <img  src={recipe.image} alt="" />
+          </div>
+          <h2>ID: {recipe.id}</h2> 
+          <h2>Diets:</h2>
+<ul>
+  {Array.isArray(recipe.diets) ? (
+    recipe.diets.map((diet) => (
+      <li key={diet}>{diet}</li>
+    ))
+  ) : (
+    <li>No se encontraron dietas</li>
+  )}
+</ul>
+        {/* <h2>Diets: {recipe.diets}</h2> */}
+        {/* <h2>Diets: </h2>
+<ul>
+  {recipe.diets?.map((diets) => (
+    <li key={diets}>{diets}</li>
+  ))}
+</ul> */}
+        <h2>Health Score: {recipe.healthScore}</h2>
+        <h2>Summary: {recipe.summary}</h2> 
         </div>
-      
+      </div>
+        <h3>Steps:</h3>
+          <ul>
+            {recipe.steps?.map((step) => (
+              <li key={step.number}>{step.step}</li>
+            ))}
+          </ul>
     </div>
   );
-};
+}
 
-export default Detail;
 
-// import { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
-// import axios from "axios";
-// import style from "../Detail/Detail.module.css"
 
-//  const Detail = () =>{  
-//   const { idRecipe } = useParams();
-//   const [recipeDetail, setRecipeDetail] = useState({});
-//   useEffect(() => {
-    
-//     axios(`http://localhost:3001/recipes/${idRecipe}`)
-//       .then(({ data }) => {
-      
-//         if (data.title) {
-         
-//           setRecipeDetail(data);
-//         } else {
-          
-//           window.alert('No hay recetas con ese ID');
-//         }
-//       }); // Limpiar el estado cuando se desmonte el componente
-//     return () => setRecipeDetail({});
-//   }, [idRecipe]);
-//     return(
-//         <div className={style.cardContainer}>
-//             {
-//             recipeDetail ? (
-//             <div>
-//                 <h1>Esta es la vista del Detail</h1>
-//             <h2>Title: {recipeDetail.title}</h2>
-//             <h2>diest: {recipeDetail.diets}</h2>
-//             <h2>healthscore: {recipeDetail.healthscore}</h2>
-//             <h2>Summry: {recipeDetail.summary}</h2>
-//             {/* <h2>Paso a paso:</h2>
-//             {recipeDetail.steps.map((step) => (
-//             <p key={step.number}>Paso {step.number}: {step.step}</p> */}
-//                 {/* ))} */}
-//                 </div>
-//             ):''
-                
-//         }
-//         </div>
-//     )
-// }
-// export default Detail;

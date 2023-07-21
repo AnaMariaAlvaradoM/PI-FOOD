@@ -5,7 +5,9 @@ import Card from "../Card/Card";
 import style from "./CardsContainer.module.css";
 
 const CardsContainer = () => {
-  const recipes = useSelector((state) => state.recipes);
+  const recipes = useSelector(state=> state.recipes);
+
+  console.log("Recipes:", recipes);
   const recipesPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -27,31 +29,33 @@ const CardsContainer = () => {
   };
 
   return (
-    <div className={style.container}>
-      {recipesForCurrentPage.map((recipe) => (
-        <Card
-          key={recipe.id}
-          idRecipe={recipe.idRecipe}
-          title={recipe.title}
-          image={recipe.image}
-          diets={recipe.diets}
-          healthScore={recipe.healthScore}
-          summary={recipe.summary}
-          steps={recipe.steps}
-        />
-      ))}
-
+    <div >
       <div className={style.pagination}>
         {currentPage > 1 && (
-          <button onClick={handlePreviousPage}>Anterior</button>
+          <button onClick={handlePreviousPage}>PREV</button>
         )}
-
         <span>{currentPage}</span>
-
         {currentPage < totalPages && (
-          <button onClick={handleNextPage}>Siguiente</button>
+          <button onClick={handleNextPage}>NEXT</button>
         )}
       </div>
+
+      <div className={style.container}>
+        {recipesForCurrentPage.map((recipe) => (
+          <Card
+            key={recipe.id}
+            id={recipe.id}
+            title={recipe.title}
+            image={recipe.image}
+            diets={recipe.diets}
+            healthScore={recipe.healthScore}
+            summary={recipe.summary}
+            steps={recipe.analyzedInstructions?.[0]?.steps || []}
+
+          />
+        ))}
+          </div>
+
     </div>
   );
 };

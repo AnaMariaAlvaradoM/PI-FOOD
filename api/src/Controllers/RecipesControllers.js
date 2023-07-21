@@ -27,28 +27,28 @@ const cleanArray = (array)=> {
 }
 // Queremos retornar lo que nos de Recipe.Create, la cual retorna una promesa, ya que demora un tiempo
 // en resolverse.
-const createRecipe = async (title, image, summary, healthScore, steps) =>{
-      await Recipe.create({title, image, summary, healthScore, steps});
+const createRecipe = async (id, title, image, diets, summary, healthScore, steps) =>{
+    return await Recipe.create({id, title, image, diets, summary, healthScore, steps});
 }
 
-const getRecetaById = async ( idRecipe, source) =>{
+const getRecetaById = async ( id, source) =>{
     let recipe;
   
     if (source === "api") {
-    const response = await axios.get(`https://api.spoonacular.com/recipes/${idRecipe}/information?apiKey=${API_KEY}`);
+    const response = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`);
     recipe = {
       id: response.data.id,
       title: response.data.title,
       image: response.data.image,
-      diets: response.diets,
-      healthscore: response.data.healthScore,
+      diets: response.data.diets,
+      healthScore: response.data.healthScore,
       summary: response.data.summary.replace(/<\/?[^>]+(>|$)/g, ""),
       steps: response.data.analyzedInstructions[0]?.steps.map(step => {
         return { number: step.number, step: step.step };
       }) || [],
     };
   } else {
-    recipe = await Recipe.findByPk(idRecipe, {
+    recipe = await Recipe.findByPk(id, {
       include: {
         model: Diets,
         attributes: ["id","title"] 

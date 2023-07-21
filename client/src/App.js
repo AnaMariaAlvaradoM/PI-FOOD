@@ -1,11 +1,10 @@
 import './App.css';
 import React from "react";
-import { Home, Landing, Form, Detail} from './Views';
-import { Route } from 'react-router-dom';
+import { Home, Landing, Form, Detail } from './Views';
 import NavBar from './Components/NavBar/NavBar';
-import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
-
-
+import { Route, useLocation } from 'react-router-dom';
+import SearchBar from './Components/SearchBar/SearchBar';
+import './fonts.css';
 
 function App() {
   const location = useLocation();
@@ -14,10 +13,10 @@ function App() {
     <div className="App">
       {location.pathname !== "/" && <NavBar />}
       <Route exact path='/' component={Landing} />
-      <Route path='/detail' component={Detail}  />
+      <Route path="/detail/:id" component={Detail} />
+      <Route path="/recipes?name=" component={SearchBar} />
       <Route path='/form' component={Form} />
-      <Route path='/home'render = {() => <Home />}  />
-
+      <Route path='/home' component={Home} />
     </div>
   );
 }

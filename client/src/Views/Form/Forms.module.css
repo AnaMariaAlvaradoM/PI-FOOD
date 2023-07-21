@@ -1,0 +1,43 @@
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Para evitar espacios no deseados */
+  margin: 0 auto; /* Centrar la imagen horizontalmente */
+}
+
+/* Estilo para el contenedor de la imagen (div que lo envuelve) */
+/* Puedes ajustar los márgenes y el tamaño según tus necesidades */
+.imagen {
+  max-width: 600px; /* Ajusta el tamaño máximo de la imagen */
+  margin: 0 auto; /* Centrar el contenedor horizontalmente */
+}
+
+/* Estilo para el campo de dietas */
+select[multiple] {
+  height: 120px; /* Altura para mostrar varias opciones sin scroll */
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+}
+
+/* Estilo para cada opción en el campo de dietas */
+select[multiple] option {
+  font-size: 16px;
+}
+
+/* Estilo para la barra de scroll del campo de dietas */
+/* Puedes personalizar esto según tus preferencias */
+select[multiple]::-webkit-scrollbar {
+  width: 8px;
+}
+
+select[multiple]::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+/* Estilo para el contenedor del campo de dietas (div que lo envuelve) */
+/* Puedes ajustar los márgenes y el tamaño según tus necesidades */
+.dietsContainer {
+  margin-bottom: 16px;
+}

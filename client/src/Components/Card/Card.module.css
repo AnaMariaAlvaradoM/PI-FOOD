@@ -1,47 +1,36 @@
  
 .cardContainer {
-    /* background-color: rgba(197, 183, 183, 0.799); */
-    /* border: ridge rgb(255, 253, 253) 5px; */
-    width: 300px; /* Ancho fijo para todas las tarjetas */
-    height: fit-content;
-    margin: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+     width:min-content; 
+    height: min-content;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    justify-content: center center ;
+    align-items: center center; 
   }
-  
-  .contentContainer {
+.contentContainer {
     padding: 0.5em;
     margin: 0.5em;
-    background-color: #000000;
-    border-radius: 4px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
     justify-content: center;
     align-items: center;
 
   }
-
-  .contentContainer h2{
+.contentContainer h2{
     margin: 0.2em;
-    font-size: 15px;
-    color: rgb(31, 184, 84);
+    font-size: 12px;
+    color: #8c8c8c;
+    font-family: 'Montserrat', sans-serif;
   }
-
-  .contentContainer p{
-    margin: 0.2em;
-    font-size: 15px;
-    color: rgb(193, 166, 13);
-    font-family: Arial;
-    text-align: center;
-    font-weight: bold;
-  }
- 
 /*! Da estilo al titulo */
 .titleName{
-    color: rgb(41, 12, 224);
-    font-family: Arial;
+    color: black;
+    font-family: 'Montserrat', sans-serif;;
     text-align: center;
     font-size: 20px; /* Aquí puedes ajustar el tamaño de fuente según tus preferencias */
-    font-weight:lighter; /* Puedes agregar negrita al texto si lo deseas */
+    font-weight:bold; /* Puedes agregar negrita al texto si lo deseas */
     text-transform:inherit; /* Puedes convertir el texto en mayúsculas si lo deseas */
     /* Agrega cualquier otra propiedad adicional que desees */
+    background-color: transparent;
 }

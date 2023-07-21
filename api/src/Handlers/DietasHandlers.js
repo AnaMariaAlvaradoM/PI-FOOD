@@ -1,27 +1,11 @@
-const { fetchAndSaveDiets, getAllDiets } = require("../Controllers/DietsControllers");
+const { getAllDiets } = require('../Controllers/DietsControllers');
 
-// Manejador para obtener las dietas
+// Manejador para obtener todas las dietas desde la base de datos
 const getDietsHandler = async (req, res) => {
-  try {
-    // Verificar si las dietas ya están cargadas en la base de datos
-    const diets = await getAllDiets();
-    if (diets.length > 0) {
-      res.status(200).json(diets);
-    } else {
-      // Si no hay dietas en la base de datos, obtenerlas de la API y guardarlas
-      await fetchAndSaveDiets();
-      const updatedDiets = await getAllDiets();
-      res.status(200).json(updatedDiets);
-    }
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
+  return getAllDiets(req, res);
 };
 
-module.exports = {
-  getDietsHandler,
-};
-
+module.exports = { getDietsHandler };
 
 // const {getAllDiets }= require("../Controllers/DietsControllers")
 
